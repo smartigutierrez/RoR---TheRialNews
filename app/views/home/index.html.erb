@@ -1,0 +1,20 @@
+<h1 class="text-center">The Rial News</h1></h1>
+<p class="text-center">Cuando la realidad supera a la ficción...</p>
+
+
+<div id="posts" class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <%= image_tag post.image, class: "rounded-circle", alt: "imagen del post" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text"><%= post.description %></p>
+          <p>
+            <%= link_to "Ver noticia", post, class: "btn btn-info" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+<br>
+<div>
+  <br>
+  <% if user_signed_in? %>
+    <% if current_user.role == "admin" || current_user.id == @post.user_id %>
+      <div class="button-container">
+        <%= button_to "Editar noticia", edit_post_path(@post), class: "btn btn-info" %>
+        <br>
+        <%= button_to "Eliminar noticia", @post, method: :delete, class: "btn btn-info" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<br>
+
+

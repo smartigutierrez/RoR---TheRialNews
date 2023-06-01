@@ -1,0 +1,33 @@
+<h2>Ingreso</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, "Recordar mis datos" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Ingresar", class: "btn btn-info" %>
+  </div>
+<% end %>
+
+<strong>**Para recuperar contraseña se debe instalar la gema mailcatcher** </strong>
+<br>
+<strong>**Posteriormente, ejecutar mailcatcher e ingresar a la dirección indicada en la consola para atrapar el correo de recuperación**</strong>
+<br>
+<strong>**El usuario admin, así como todo el resto de usuarios, tienen como contraseña estandar "admin1234"**</strong>
+<br>
+
+<%= render "devise/shared/links" %>
